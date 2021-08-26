@@ -1,0 +1,62 @@
+body{
+    margin: 0;
+    background-color: black;
+    color: white;
+}
+.container{
+    width: 80vw;
+    margin: auto;
+}
+h1{
+    text-align: center;
+}
+#description{
+    border-top:1px grey solid ;
+    padding: 1%;
+}
+#category{
+    border-top:1px grey solid ;
+    border-bottom:1px grey solid;
+    padding: 1%;
+
+}
+#date{
+    border: 1px grey solid;
+    border-right: 0;
+    padding: 1%;
+
+}
+button{
+    margin: 2%;
+    height: 50px;
+}
+.button_row{
+    padding-top: 1%;
+}
+#add{
+    background-color: gray;
+    color: white;
+    font-size: larger;
+}
+#add:hover{
+    background-color: rgb(100, 100, 100);
+}
+#del{
+    background-color: red;
+    font-size: larger;
+}
+#del:hover{
+    background-color: rgb(209, 21, 21);
+}
+
+
+.task_list{
+    width: 70vw;
+}
+ul{
+    overflow-y:auto;
+}
+.item{
+    border-top:1px grey solid ;
+    padding: 1%;
+}
