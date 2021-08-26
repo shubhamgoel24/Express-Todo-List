@@ -1,7 +1,9 @@
 $("#del").click(function(){
     var listitems=$("input:checked");
+    var delarry = [];
     $.each(listitems,function(i,x){
-        console.log(x.id);
-        window.location = '/delete-task/?id=' + x.id;
+        delarry.push(x.id);
     });
+    var arrStr = encodeURIComponent(JSON.stringify(delarry));
+    window.location = '/delete-task/?id=' + arrStr;
 });

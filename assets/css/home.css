@@ -2,13 +2,18 @@ body{
     margin: 0;
     background-color: black;
     color: white;
-}
-.container{
-    width: 80vw;
-    margin: auto;
+    font-size: 2vh;
 }
 h1{
     text-align: center;
+    font-size: 5vh;
+}
+h4{
+    font-size: 2vh;
+}
+.container{
+    max-width: none;
+    width: 95vw;
 }
 #description{
     border-top:1px grey solid ;
@@ -26,9 +31,19 @@ h1{
     padding: 1%;
 
 }
+
+input , select{
+    background-color: black;
+    color: #888;
+    padding: 1%;
+    width: 100%;
+    border: none;
+}
+
 button{
     margin: 2%;
-    height: 50px;
+    height: 4vh;
+    font-size: 2vh;
 }
 .button_row{
     padding-top: 1%;
@@ -36,14 +51,12 @@ button{
 #add{
     background-color: gray;
     color: white;
-    font-size: larger;
 }
 #add:hover{
     background-color: rgb(100, 100, 100);
 }
 #del{
     background-color: red;
-    font-size: larger;
 }
 #del:hover{
     background-color: rgb(209, 21, 21);
@@ -51,12 +64,35 @@ button{
 
 
 .task_list{
-    width: 70vw;
-}
-ul{
-    overflow-y:auto;
+    width: 90vw;
+    max-height: 50vh;
+    overflow-y: auto;
 }
 .item{
     border-top:1px grey solid ;
     padding: 1%;
 }
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 25px;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 25px;
+    height: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }

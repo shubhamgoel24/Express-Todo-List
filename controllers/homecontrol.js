@@ -8,7 +8,7 @@ module.exports.home = function(req,res){
         }
 
         return res.render('home',{
-            title : 'Contacts List',
+            title : 'TODO List',
             task : tasks
         });
     });
@@ -31,11 +31,14 @@ module.exports.create_task=function(req,res){
 
 module.exports.delete_task=function(req,res){
     let id=req.query.id;
-    Task.findByIdAndDelete(id,function(err){
-        if(err){
-            console.log('Error in deleting an object from database');
-            return;
-        }
-        return res.redirect('back');
+    var xy = JSON.parse(id);
+    xy.forEach(idno => {
+        Task.findByIdAndDelete(idno,function(err){
+            if(err){
+                console.log('Error in deleting an object from database');
+                return;
+            }
+        });
     });
+    return res.redirect('back');
 };

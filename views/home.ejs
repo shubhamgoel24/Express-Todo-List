@@ -17,15 +17,15 @@
                 <div class="row">
                     <div id="description">
                         <h4>Description</h4>
-                        <input type="text" name="description" placeholder="What do you need to do ?" >
+                        <input type="text" name="description" placeholder="What do you need to do ?" required >
                     </div>
                 </div>
                 
                 <div class="row">
-                    <div id="category" class="col-6">
+                    <div id="category" class="col-6" >
                         <h4>Category</h4>
-                        <select name="category" id="catego">
-                            <option value="" disabled selected hidden>Choose a Category</option>
+                        <select name="category" id="catego" required>
+                            <option value="" disabled selected hidden>Choose Category</option>
                             <option value="Personal">Personal</option>
                             <option value="Work">Work</option>
                             <option value="School">School</option>
@@ -35,12 +35,12 @@
                     </div>
                     <div id="date" class="col-6">
                         <h4>Due Date</h4>
-                        <input type="date" name="date">
+                        <input type="date" name="date" required>
                     </div>
                 </div>
                 <div class= "row d-flex justify-content-center button_row">
-                    <button id="add" class="col-2" type="submit"><i class="fas fa-plus"></i> Add Task</button>
-                    <button id="del" class="col-2" type="button"><i class="fas fa-trash"></i> Delete Tasks</button>
+                    <button id="del" class=" col-5 col-sm-4 col-md-3 col-lg-2" type="button"><i class="fas fa-trash"></i> Delete</button>
+                    <button id="add" class=" col-5 col-sm-4 col-md-3 col-lg-2" type="submit"><i class="fas fa-plus"></i> Add</button>
                 </div>
             </form>
             
@@ -55,23 +55,13 @@
                             <input type="checkbox" class="col-1 listitem" id="<%= i._id %>">
                             <div class="col-5">
                                 <div id="taskdisc" class="row"><%= i.description %></div>
-                                <div id="taskdate" class="row"> <%= Intl.DateTimeFormat('en-GB', options1 = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }).format(i.date) %></div>
+                                <div id="taskdate" class="row"> <%= Intl.DateTimeFormat('en-GB', options1 = { /*weekday: 'long',*/ year: 'numeric', month: 'long', day: 'numeric' }).format(i.date) %></div>
                             </div>
                             <div class="col-6">
                                 <div class="row d-flex justify-content-end"><%= i.category %></div>
                             </div>
                         </li>
                     <% } %>
-                    <li class="row item">
-                        <input type="checkbox" class="col-1"> 
-                        <div class="col-5">
-                            <div id="taskdisc" class="row">Complete TODO List</div>
-                            <div id="taskdate" class="row">25 Aug, 2021</div>
-                        </div>
-                        <div class="col-6">
-                            <div class="row d-flex justify-content-end">Work</div>
-                        </div>
-                    </li>
                 </ul>
             </div>
         </div>
