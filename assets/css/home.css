@@ -65,12 +65,15 @@ button{
 
 .task_list{
     width: 90vw;
-    max-height: 50vh;
+    max-height: 48vh;
     overflow-y: auto;
 }
 .item{
     border-top:1px grey solid ;
     padding: 1%;
+}
+.listitem{
+    height: 25px;
 }
 
 
