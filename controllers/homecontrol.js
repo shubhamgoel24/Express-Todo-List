@@ -8,37 +8,52 @@ module.exports.home = function(req,res){
         }
 
         return res.render('home',{
-            title : 'TODO List',
+            title : 'ToDo List App',
             task : tasks
         });
     });
 };
 
-module.exports.create_task=function(req,res){
-    Task.create({
-        description: req.body.description,
-        date: req.body.date,
-        category: req.body.category
-    },function(err,newTask){
-        if(err){
-            console.log("Error in creating contact" + err);
-            return;
+module.exports.create_task= async function(req,res){
+    try{
+        let task = await Task.create({
+            description: req.body.description,
+            date: req.body.date,
+            category: req.body.category
+        });
+    
+        if(req.xhr){
+            return res.status(200).json({
+                data: {
+                    task : task
+                },
+                message: "Task Created!"
+            }); 
         }
-        return res.redirect('back');
-    });
+    }catch(err){
+        console.log("Error in creating task" + err);
+        return;
+    }
 };
 
 
 module.exports.delete_task=function(req,res){
-    let id=req.query.id;
-    var xy = JSON.parse(id);
-    xy.forEach(idno => {
-        Task.findByIdAndDelete(idno,function(err){
-            if(err){
-                console.log('Error in deleting an object from database');
-                return;
-            }
+    try{
+        let id=req.query.id;
+        var xy = JSON.parse(id);
+        xy.forEach(idno => {
+            Task.findByIdAndDelete(idno,function(err){
+                if(err){
+                    console.log('Error in deleting an object from database');
+                    return;
+                }
+            });
         });
-    });
-    return res.redirect('back');
+        return res.status(200).json({
+            message: "Tasks Deleted Sucessfully !"
+        });
+    }catch(err){
+        console.log("Error in deleting task" + err);
+        return;
+    }
 };

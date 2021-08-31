@@ -36,8 +36,10 @@ input , select{
     background-color: black;
     color: #888;
     padding: 1%;
-    width: 100%;
     border: none;
+}
+::-webkit-calendar-picker-indicator {
+    filter: invert(1);
 }
 
 button{

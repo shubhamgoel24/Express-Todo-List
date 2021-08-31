@@ -4,6 +4,8 @@
         <title>
             <%= title%>
         </title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
         <script src="https://kit.fontawesome.com/71fe6befa9.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="./css/home.css">
@@ -11,20 +13,20 @@
     <body>
         <div class="container">
             <div class="row">
-                <h1>TODO App</h1>
+                <h1>ToDo List App</h1>
             </div>
-            <form action="/create-Task" method="POST">
+            <form action="/create-Task" id="new-task-form" method="POST">
                 <div class="row">
                     <div id="description">
                         <h4>Description</h4>
-                        <input type="text" name="description" placeholder="What do you need to do ?" required >
+                        <input type="text" name="description" placeholder="What do you need to do ?"  >
                     </div>
                 </div>
                 
                 <div class="row">
                     <div id="category" class="col-6" >
                         <h4>Category</h4>
-                        <select name="category" id="catego" required>
+                        <select name="category" id="catego" >
                             <option value="" disabled selected hidden>Choose Category</option>
                             <option value="Personal">Personal</option>
                             <option value="Work">Work</option>
@@ -35,7 +37,7 @@
                     </div>
                     <div id="date" class="col-6">
                         <h4>Due Date</h4>
-                        <input type="date" name="date" required>
+                        <input type="date" name="date" id="date-input" required>
                     </div>
                 </div>
                 <div class= "row d-flex justify-content-center button_row">
@@ -49,9 +51,9 @@
             
 
             <div>
-                <ul class="container task_list">
+                <ul class="container task_list" id="tasks-list-container">
                     <% for (let i of task){ %>
-                        <li class="row item">
+                        <li class="row item" id="<%= i._id %>">
                             <input type="checkbox" class="col-1 listitem" id="<%= i._id %>">
                             <div class="col-5">
                                 <div id="taskdisc" class="row"><%= i.description %></div>
